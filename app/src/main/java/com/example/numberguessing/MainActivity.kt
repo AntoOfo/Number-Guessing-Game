@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         correctWrong.isVisible = false  // initially invisible
 
         guessBtn.setOnClickListener{
-            val randNum = Random.nextInt(1, 3)
+            val randNum = Random.nextInt(1, 100)
 
             randomNumber.text = randNum.toString()
             val userInput = numberInput.text.toString()
