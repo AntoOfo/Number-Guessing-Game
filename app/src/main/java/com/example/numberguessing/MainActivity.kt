@@ -1,7 +1,9 @@
 package com.example.numberguessing
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.transition.Fade
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -33,12 +35,16 @@ class MainActivity : AppCompatActivity() {
             randomNumber.text = randNum.toString()
             val userInput = numberInput.text.toString()
 
+            val fadeOut = ObjectAnimator.ofFloat(correctWrong, "alpha", 1f,0f)      // adds animation feature to correctWrong
+            fadeOut.duration = 2000
             if (userInput == randNum.toString()){
                 correctWrong.text = "Correct!"
                 correctWrong.isVisible = true       // becomes visible
+                fadeOut.start()     // starts animation
             } else {
                 correctWrong.text = "Wrong!"
                 correctWrong.isVisible = true
+                fadeOut.start()
             }
         }
         }
